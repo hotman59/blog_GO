@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BlogGo</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>BlogGo</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
+    <div id="sidebar">
+      <ul>
+        <li class="category"></li>
+        <li>website</li>
+        <li>about</li>
+        <li>contact</li>
+        <li>facebook</li>
+      </ul>
+      <p class="sign_in">
+        Admin Login</p>
+    </div>
+
+    <div id="navbar">
+      <div id="header">
+        <p>all posts</p>
+        <div class="buttons">
+          <button class="button"><%= link_to "New Post", new_post_path %></button>
+          <button class="button">
+            Log out</button>
+        </div>
+      </div>
+
+    <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert") %>
+    <% end %>
 <%= yield %>
+  </div>
 
-</body>
+  </body>
 </html>
