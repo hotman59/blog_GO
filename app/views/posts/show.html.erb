@@ -18,5 +18,5 @@
 <%= render @post.comments%>
 
 <h3> add a comment:</h3>
-<%= render "comments/form" %>
+<%= render partial: "comments/form",:locale => Comment.new %>
 </div>
