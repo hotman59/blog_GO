@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'devise'
+gem "administrate", "~> 0.2.2"
+gem "bourbon"
 
 gem 'normalize-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
