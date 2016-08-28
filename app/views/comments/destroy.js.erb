@@ -1,0 +1,4 @@
+var b= '#comment'+<%= @comment.id.to_s %>;
+$(b).hide("slow");
+$("#postcomcount").html("<%= escape_javascript(render(:partial => 'postcetlcount')) %>");
+$(b).remove();

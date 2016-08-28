@@ -55,6 +55,7 @@ group :development do
   gem 'better_errors'
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
+  gem 'pry'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

@@ -1,0 +1,4 @@
+
+var b="#comment"+<%=@comment.id.to_s%>+" #likelinks";
+
+$(b).html("<%= link_to('unlike',like_path(user_id: current_user.id, comment_id: @comment.id, post_id:@post.id), method:'delete', remote:true) %>");

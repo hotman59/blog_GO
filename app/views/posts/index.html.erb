@@ -1,7 +1,14 @@
-<% @posts.each do |post| %>
-<div class="post_wrapper">
+<div class="row">
+
+<% @posts.where(brouillon:false).reverse.each do |post| %>
+<div class="col-xs-2">
+
+</div>
+<div class="col-xs-10 post_wrapper">
 <h2 class="title"> <%= link_to post.title, post_path(post) %> </h2>
-<p class="date"> <%= post.created_at.strftime ("Le %d %B %Y") %> </p>
+<p><%= truncate(post.body, :omission => "...", :length => 150) %></p>
+<p class="date"> <%= post.created_at.strftime ("Le %d %B %Y") %>, par <%= User.find(post.user_id).username %></p>
 </div>
 
 <% end %>
+</div>

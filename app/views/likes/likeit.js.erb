@@ -1,0 +1,16 @@
+<% if @postid!=nil %>
+var b = '#postlikeitem'+ <%=@postid.to_s%>;
+
+<% a=Post.find(@postid) %>;
+
+$(b).html('<%=escape_javascript (render partial: "likes/dontlike", locals: { com: a } )%>');
+$('#commentlist').prepend($(b))
+<% end %>
+<% if @comid!=nil %>
+var b = '#comment'+<%=@comid.to_s%>;
+
+<% a=Comment.find(@comid) %>;
+
+$(b).html('<%=escape_javascript (render partial:"comments/comment", locals: {com: a} )%>');
+$('#commentlist').prepend($(b))
+<% end %>
