@@ -1,0 +1,33 @@
+
+
+    <h1 class="headercontant col-md-12 text-center">
+      Mon Profil:
+      <%= @user.username %>
+    </h1>
+
+
+          <h4>
+            <%= @user.firstname %>
+
+            <% if current_user%>
+            <% if current_user.id == @user.id %>
+
+            <%= @user.name %>
+            <%end%>
+            <%end%>
+          </h4>
+
+          <p>
+        <%= @user.dayofbirth %>
+
+          </p>
+        <% if user_signed_in? %>
+        <% if current_user.id==@user.id %>
+                    <div class="col-md-12 editlinkbloc text-center">
+                      <%= link_to 'Editer mon profil', edit_user_path(@user), class:"btn btn-lg" %>
+                    </div>
+
+          <% else %>
+
+          <%end%>
+          <%end%>

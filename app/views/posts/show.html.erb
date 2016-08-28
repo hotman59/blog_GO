@@ -9,14 +9,43 @@
 </p>
 
 <p class="body">
-  <%= @post.body %>
+  <%= @post.body %> <br>
+  <%= @comments.count%> commentaires
 </p>
 
-<div id="comments">
+<% if user_signed_in? %>
+<div id="bloccomments">
+  <h5> Commenter:</h5>
+  <%= render "comments/form"%>
 
-<h2><%= @post.comments.count%>comments</h2>
-<%= render @post.comments%>
+  <% @comments.each do |com| %>
+  <div class="row">
+    <%if com.user_id==current_user.id || com.user_id==@post.user_id%>
+    <div class="col-md-9">
+      <p><%= com.body %> <br> like</p>
+    </div>
 
-<h3> add a comment:</h3>
-<%= render "comments/form"%>
+    <div class="col-md-1">
+      <%= link_to('like',root_path) %>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+        <% else %>
+
+          <div class="col-md-2">
+
+          </div>
+
+          <div class="col-md-9">
+            <p><%= com.body %> <br> like
+            </div>
+
+            <div class="col-md-1">
+              <%= link_to('like',root_path) %>
+            </div>
+      <% end %>
+  </div>
+  <% end %>
 </div>
+<% end %>
