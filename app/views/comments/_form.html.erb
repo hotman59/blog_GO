@@ -1,5 +1,5 @@
-
-<%= form_for ([@post, @post.comments.build]) do |f| %>
+<% @newcom=Comment.new %>
+<%= form_for [@post, @newcom], remote: true do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <%= f.hidden_field :post_id, :value => @post.id %>
 <p>

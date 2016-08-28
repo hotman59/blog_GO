@@ -1,0 +1,11 @@
+
+<% a=@comment %>
+var comment<%= @comment.id %>  = document.createElement('li');
+comment<%= @comment.id %>=$(comment<%= @comment.id %>);
+$(comment<%= @comment.id %>).attr('id', 'comment<%= @comment.id %>');
+$(comment<%= @comment.id %>).addClass('row');
+$(comment<%= @comment.id %>).hide();
+$(comment<%= @comment.id %>).html('<%=escape_javascript (render partial:"comments/comment", locals: {com: a} )%>');
+$('#commentlist').prepend($(comment<%= @comment.id %>));
+$(comment<%= @comment.id %>).show("slow");
+$("#postcomcount").html("<%= escape_javascript(render(:partial => 'postcetlcount')) %>");

@@ -24,10 +24,18 @@
         <% if user_signed_in? %>
         <% if current_user.id==@user.id %>
                     <div class="col-md-12 editlinkbloc text-center">
-                      <%= link_to 'Editer mon profil', edit_user_path(@user), class:"btn btn-lg" %>
+                      <%= link_to 'Editer mon profil', edit_user_registration_path(@user), class:"btn btn-lg" %>
                     </div>
 
           <% else %>
 
           <%end%>
           <%end%>
+
+<h2> Mes commentaires </h2>
+<ul class="text-center">
+  <% Comment.where(user_id:@user.id).reverse.each do |i| %>
+  <li> <%= i.body %>  le: <%= i.created_at %> sur l'article:<br>
+  <%= Post.find(i.post_id).title %></li>
+  <% end %>
+</ul>
